@@ -1,7 +1,7 @@
 """
 Token bucket rate limiter, in-memory, per client IP.
 
-How a token bucket works (the thing to actually explain in an interview):
+How a token bucket works 
 - Each client gets a "bucket" that holds up to `capacity` tokens.
 - Tokens refill continuously at `refill_rate` tokens/second.
 - Every request consumes 1 token; if the bucket is empty, the request
