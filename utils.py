@@ -1,7 +1,7 @@
 """
 Short code generation.
 
-Two common approaches, worth knowing both for an interview:
+
 
 1) Random string (what we do here): generate a random base62 string,
    check the DB for a collision, retry on the rare clash. Simple, works
