@@ -6,16 +6,6 @@ Endpoints:
   GET  /{short_code}        -> redirect to the original URL (302)
   GET  /stats/{short_code}  -> view click count / metadata (no redirect)
 
-Design decisions worth explaining in an interview:
-- Redirect uses HTTP 302 (temporary), not 301 (permanent). 301 gets cached
-  by browsers, which would make click_count stop incrementing after the
-  first visit since the browser skips the server on future clicks.
-- An in-memory LRU-style cache sits in front of the DB for hot lookups on
-  the redirect path (the read-heavy path). Writes (POST /shorten) always
-  go straight to the DB. This mirrors a real cache-aside pattern, just
-  with a dict instead of Redis - swapping in real Redis later is a
-  drop-in change to `cache.py` only.
-"""
 
 from datetime import datetime, timedelta, timezone
 
