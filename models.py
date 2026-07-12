@@ -9,11 +9,7 @@ URL
 - expires_at     : nullable -> link never expires if NULL
 - click_count    : denormalized counter, incremented on every redirect
 
-Why a separate internal `id` from the public `short_code`:
-Never expose auto-increment DB ids in a public API - it lets people guess
-how many rows/users you have, and lets them enumerate other people's links
-by just incrementing a number in the URL.
-"""
+
 
 from datetime import datetime, timezone
 from sqlalchemy import Column, Integer, String, DateTime
