@@ -1,11 +1,6 @@
 """
 Database setup using SQLAlchemy + SQLite.
 
-Why SQLite: zero setup for a portfolio project, but the code is written so
-swapping to Postgres/MySQL later only means changing DATABASE_URL - nothing
-else in the app needs to change. That's the point worth mentioning in an
-interview: the persistence layer is abstracted behind SQLAlchemy's ORM.
-"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
